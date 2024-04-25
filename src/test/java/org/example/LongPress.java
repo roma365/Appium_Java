@@ -1,5 +1,7 @@
 package org.example;
 
+//Comment from the wirk computer
+
 import com.google.common.collect.ImmutableMap;
 import com.google.errorprone.annotations.Immutable;
 import io.appium.java_client.AppiumBy;
@@ -25,7 +27,5 @@ public class LongPress extends  BaseTest {
         String popOverMenu = driver.findElement(By.id("android:id/title")).getText();
         Assert.assertEquals(popOverMenu, "Sample menu");
         Assert.assertTrue(driver.findElement(By.id("android:id/title")).isDisplayed());
-
-
     }
 }
