@@ -29,7 +29,7 @@ public class BaseTest {
         //service.start();
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Pixel 7 Pro - Custom Device API 33");
-        options.setApp("C:\\Users\\Admin\\IdeaProjects\\Appium_Java\\src\\resources\\ApiDemos-debug.apk");
+        options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\ApiDemos-debug.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
