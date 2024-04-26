@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -44,9 +45,7 @@ public class BaseTest {
     public  void  scrollToEnd(){
         //NO PRIOR IDEA
         boolean canScrollMore;
-        do
-        {
-
+        do{
             canScrollMore = (Boolean) ((JavascriptExecutor) driver)
                     .executeScript("mobile: scrollGesture", ImmutableMap.of(
                             "left", 100, "top", 100, "width", 200, "height", 200,
@@ -56,6 +55,22 @@ public class BaseTest {
         }while(canScrollMore);
     }
 
+    public  void  swipeAction(WebElement element, String duration){
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId(),
+                "left", 100, "top", 100, "width", 200, "height", 200,
+                "direction", duration,
+                "percent", 0.75
+        ));
+    }
+
+    public  void  dragAndDropAction(WebElement source, int endX, int endY){
+        ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) source).getId(),
+                "endX", endX,
+                "endY", endY
+        ));
+    }
     @AfterClass
     public  void tearDown(){
         driver.quit();
