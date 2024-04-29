@@ -23,14 +23,15 @@ public class BaseTest {
     public AppiumDriverLocalService service;
 
     @BeforeClass
-        public  void configureAppium() throws MalformedURLException {
+    public  void configureAppium() throws MalformedURLException {
          service = new AppiumServiceBuilder()
                 .withAppiumJS(new File("C:\\Users\\Admin\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
                 .withIPAddress("127.0.0.1").usingPort(4723).build();
         //service.start();
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("Pixel 7 Pro - Custom Device API 33");
-        options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\ApiDemos-debug.apk");
+        //options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\ApiDemos-debug.apk");
+        options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\General-Store.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
@@ -71,6 +72,8 @@ public class BaseTest {
                 "endY", endY
         ));
     }
+
+
     @AfterClass
     public  void tearDown(){
         driver.quit();
