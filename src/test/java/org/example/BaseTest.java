@@ -5,11 +5,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -32,6 +30,7 @@ public class BaseTest {
         options.setDeviceName("Pixel 7 Pro - Custom Device API 33");
         //options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\ApiDemos-debug.apk");
         options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\General-Store.apk");
+        //options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\realFan.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
@@ -71,6 +70,11 @@ public class BaseTest {
                 "endX", endX,
                 "endY", endY
         ));
+    }
+
+    public Double getFormattedAmount(String amount){
+       Double price = Double.parseDouble(amount.substring(1));
+       return price;
     }
 
 
