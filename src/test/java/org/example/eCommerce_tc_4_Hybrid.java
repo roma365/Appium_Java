@@ -1,7 +1,10 @@
 package org.example;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,8 +13,9 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 
-public class eCommerce_tc_3 extends BaseTest {
+public class eCommerce_tc_4_Hybrid extends BaseTest {
 
     @Test
     public  void  fillForm() throws InterruptedException {
@@ -53,8 +57,19 @@ public class eCommerce_tc_3 extends BaseTest {
         driver.findElement(By.id("android:id/button1")).click();
         driver.findElement(By.className("android.widget.CheckBox")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
-        Thread.sleep(2000);
+        Thread.sleep(6000);
         //Hybrid - Google page ->
+        Set<String> contexts = driver.getContextHandles();
+        for (String contextName : contexts)
+        {
+            System.out.println("contextName: " + contextName);
+        }
+
+        driver.context("WEBVIEW_com.androidsample.generalstore");
+        driver.findElement(By.name("q")).sendKeys("perturaba primarch", Keys.ENTER);
+        //driver.findElement(By.name("q")).sendKeys("perturaba primarch");
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        driver.context("NATIVE_APP");
 
 
     }
