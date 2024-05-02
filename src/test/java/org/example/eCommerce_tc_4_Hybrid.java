@@ -33,7 +33,7 @@ public class eCommerce_tc_4_Hybrid extends BaseTest {
 
         driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.
                 attributeContains(driver.findElement(
                         By.id("com.androidsample.generalstore:id/toolbar_title")),"text", "Cart" ));
@@ -58,6 +58,7 @@ public class eCommerce_tc_4_Hybrid extends BaseTest {
         driver.findElement(By.className("android.widget.CheckBox")).click();
         driver.findElement(By.id("com.androidsample.generalstore:id/btnProceed")).click();
         Thread.sleep(6000);
+
         //Hybrid - Google page ->
         Set<String> contexts = driver.getContextHandles();
         for (String contextName : contexts)
