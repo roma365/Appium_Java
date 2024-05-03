@@ -31,7 +31,7 @@ public class BrowserBaseTest {
         //options.setPlatformName("Android").noReset().withBrowserName("Browser");
         options.setDeviceName("Pixel 6 Pro API 33");
         options.setChromedriverExecutable("D:\\Program\\Work\\BrowserDrivers\\chromedriver_win32\\chromedriver.exe");
-        options.setCapability("browserName", "Browser");
+        options.setCapability("browserName", "Chrome");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

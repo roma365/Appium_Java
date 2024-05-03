@@ -31,8 +31,8 @@ public class BaseTest {
         options.setDeviceName("Pixel 6 Pro API 33");
         options.setChromedriverExecutable("D:\\Program\\Work\\BrowserDrivers\\chromedriver_win32\\chromedriver.exe");
         //options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\ApiDemos-debug.apk");
-        //options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\General-Store.apk");
-        options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\realFan.apk");
+        options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\General-Store.apk");
+        //options.setApp("D:\\Desktop\\MyGithub\\APPIUM_JAVA_\\Appium_Java\\src\\resources\\realFan.apk");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
